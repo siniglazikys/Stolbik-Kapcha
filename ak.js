@@ -273,7 +273,7 @@ JSON.stringify(plwizaCFG) + "</b><br/>или скопировать из " +
         if(!lost.plwizadate)// show beleived to be the date of the so-wantohave visa
             lost.plwizadate = te.options[te.options.length - 1].text
 
-        selectOption(te ,0 ,'first_item')
+        selectOption(te ,0 ,'last_item')
 
         if((te = gi('cp_btnRezerwuj'))){
             _msg_screen('Жму [Зарегистрироваться]')
