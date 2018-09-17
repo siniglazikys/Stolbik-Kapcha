@@ -40,7 +40,7 @@ var site = 'https://rejestracja.by.e-konsulat.gov.pl/'
     ,postPlac = "__doPostBack('ctl00$tresc$cbListaPlacowek','')"
 
 // "siteRegBlank"
-    ,id_vid = 'ctl00_cp_f_cbRodzajUslugi'
+    ,id_vid = 'cp_cbRodzajUslugi'
     ,dataJ = 0 ,darr ,fa = [] //poiner, demo array and one for deferred filling
 
 /* helpers */
@@ -240,7 +240,7 @@ JSON.stringify(plwizaCFG) + "</b><br/>или скопировать из " +
     }// need staring [configuration] or [start] button click
     if((te = lost['plwizacfg'])) plwizaCFG = JSON.parse(te)
 
-    if((te = gi('ctl00_tresc_cbListaPlacowek'))){
+    if((te = gi('tresc_cbListaPlacowek'))){
         /* <option value="93">Брест</option>
            <option value="95">Гродно</option>
            <option value="94">Минск</option> */
@@ -263,33 +263,33 @@ JSON.stringify(plwizaCFG) + "</b><br/>или скопировать из " +
         )
 
         return
-        //old: ctl00_cp_f_KomponentObrazkowy_VerificationID
+        //old: cp_f_KomponentObrazkowy_VerificationID
         //new: cp_Captcha_ctl01_tbAnswer
     }
 
     /* == Finding of enabled types with dates ==*/
 
-    if((te = gi('ctl00_cp_cbDzien'))){
+    if((te = gi('cp_cbDzien'))){
         if(!lost.plwizadate)// show beleived to be the date of the so-wantohave visa
             lost.plwizadate = te.options[te.options.length - 1].text
 
         selectOption(te ,0 ,'last_item')
 
-        if((te = gi('ctl00_cp_btnRezerwuj'))){
+        if((te = gi('cp_btnRezerwuj'))){
             _msg_screen('Жму [Зарегистрироваться]')
             te.focus()
             te.dispatchEvent(mkClick())
             return
         }
         return
-        //<select name="ctl00$cp$cbDzien" id="ctl00_cp_cbDzien" onchange="cbDzienGodzina_onChange(this);"
+        //<select name="ctl00$cp$cbDzien" id="cp_cbDzien" onchange="cbDzienGodzina_onChange(this);"
         /* old:
-         * ,id_Srok = 'ctl00_cp_f_cbTermin'
+         * ,id_Srok = 'cp_f_cbTermin'
          * ,postSrok = "__doPostBack('ctl00$cp_f$cbTermin','')"
          * */
     }
 
-    if((te = gi('ctl00_cp_cbRodzajUslugi'))){
+    if((te = gi('cp_cbRodzajUslugi'))){
         _msg_screen(
             'Выбор услуги: ' + plwizaCFG.type + (plwizaCFG.startTime ?
             ' начало в ' + plwizaCFG.startTime +
@@ -322,7 +322,7 @@ JSON.stringify(plwizaCFG) + "</b><br/>или скопировать из " +
         return
     }// select type
 
-    if((te = gi('ctl00_cp_f_cmdDalej'))){// prepare user to autofill the from
+    if((te = gi('cp_f_cmdDalej'))){// prepare user to autofill the from
         // setup deferred item fill functions and data
         read_xls_data = plVFF ,fill_plwizaform_items = pfd ,define_darr()
         _msg_screen(
@@ -414,7 +414,7 @@ try {
         } else if(!/^[?]/.test(elId) && v){
             //add more "last visas" input fields
             if(/PoprzednieWizy_/.test(elId)){// was RE: _txtDataOd
-                el = gi('ctl00_cp_f_btn26Wiecej')
+                el = gi('cp_f_btn26Wiecej')
                 el.focus()
                 el.dispatchEvent(mkClick())
             }
