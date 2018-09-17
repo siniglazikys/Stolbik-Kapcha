@@ -28,7 +28,7 @@ var ver = 'v008'
 ,Srok = ''       //'2012-05-11'
 ,BPEM9 = 555     // время заполнения одного элемента
 ,plwizaCFG = {
-    city: Gorod ,type: Vid ,date: Srok ,milliSecItem: BPEM9 ,startTime: '12:00:21'
+    CITY: Gorod ,type: Vid ,date: Srok ,milliSecItem: BPEM9 ,startTime: '12:00:21'
 }
 
                                 //к//о//д//и//н//г//
@@ -185,7 +185,7 @@ try {
         return
     }
 
-    plwizaCFG.city = Gorod
+    plwizaCFG.CITY = Gorod
     plwizaCFG.type = Vid
     plwizaCFG.milliSecItem = BPEM9
     plwizaCFG.date = Srok
@@ -246,11 +246,11 @@ JSON.stringify(plwizaCFG) + "</b><br/>или скопировать из " +
            <option value="94">Минск</option> */
         te.focus()
         _msg_screen('Автозаполняем Город...')
-        selectOption(te ,plwizaCFG.city)
+        selectOption(te ,plwizaCFG.CITY)
         if(lost.plwizadate) { delete lost.plwizadate }
 
         return // no other actions
-    }// select City/Town/Placowek: from cfg, user select or default
+    }// select CITY/Town/Placowek: from cfg, user select or default
 
     if((te = gi('cp_Captcha_ctl01_tbAnswer'))){
         scrollTo(111,1111)
