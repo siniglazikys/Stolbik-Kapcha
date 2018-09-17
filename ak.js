@@ -230,9 +230,9 @@ JSON.stringify(plwizaCFG) + "</b><br/>или скопировать из " +
 '</div>'
         )
         try {
-            gi('cp_btnDalej').focus()
+            gi('cp_Captcha_ctl01_tbAnswer').focus()
             setTimeout(
-                "document.getElementById('cp_btnDalej').focus()"
+                "document.getElementById('cp_Captcha_ctl01_tbAnswer').focus()"
                 ,0
             )//Firefox focus() fix (doesn't work)
         } catch (e) { }
@@ -252,7 +252,7 @@ JSON.stringify(plwizaCFG) + "</b><br/>или скопировать из " +
         return // no other actions
     }// select City/Town/Placowek: from cfg, user select or default
 
-    if((te = gi('cp_btnDalej'))){
+    if((te = gi('cp_Captcha_ctl01_tbAnswer'))){
         scrollTo(111,1111)
         te.focus()
         te.dispatchEvent(mkClick())//Firefox focus() fix try
@@ -264,7 +264,7 @@ JSON.stringify(plwizaCFG) + "</b><br/>или скопировать из " +
 
         return
         //old: ctl00_cp_f_KomponentObrazkowy_VerificationID
-        //new: cp_btnDalej
+        //new: cp_Captcha_ctl01_tbAnswer
     }
 
     /* == Finding of enabled types with dates ==*/
